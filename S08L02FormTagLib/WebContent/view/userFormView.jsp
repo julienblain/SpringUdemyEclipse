@@ -15,8 +15,8 @@
 	<p>
 	<!-- le path permet de lier les attributs du model avec l'input -->
 		Name : <form:input path="name"/> 
-		Gender : Male <form:radiobutton path="gender"/>
-				 Female <form:radiobutton path="gender"/>
+		Gender : Male <form:radiobutton path="gender" value="male"/>
+				 Female <form:radiobutton path="gender" value="female"/>
 	</p>
 	<input type="submit" value="submit">
 </form:form>
