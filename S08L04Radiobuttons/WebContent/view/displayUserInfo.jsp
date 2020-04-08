@@ -7,6 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>UserInfo</title>
+<!-- attention mapping with annotation driven -->
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/files/css/style.css">
+
 </head>
 <body>
 	<p>Name : ${user.name }</p>

@@ -8,9 +8,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User form</title>
+
+<!-- attention mapping with annotation driven -->
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/files/css/style.css">
+
 </head>
 <body>
-
+<h1>Submit your informations</h1>
+<hr>
 <form:form action="displayUserInfo" modelAttribute="user">
 	<p>
 	<!-- le path permet de lier les attributs du model avec l'input ; items donne les valeurs du mappage controler-->
