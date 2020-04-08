@@ -4,7 +4,10 @@ package org.studyeasy.spring;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,9 +39,15 @@ public class HelloController {
 	}
 	
 	@PostMapping("/displayUserInfo")
-	public ModelAndView displayUserInfo(User user) {
+	public ModelAndView displayUserInfo(@Valid User user, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("displayUserInfo");
 		modelAndView.addObject("user", user);
+		
+		// annotation valid et bindingResult permettent de valider les données par rapport aux info données par le model
+		if(result.hasErrors()) {
+			System.out.println("Has errors !");
+		}
+		
 		return modelAndView;
 	}
 

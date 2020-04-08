@@ -1,7 +1,12 @@
 package org.studyeasy.model;
 
+import javax.validation.constraints.Size;
+
 public class User {
-	private String name, gender, country, introduction, visitedCountries[];
+	
+	@Size(min=5, max=15) //info sur la validation des données qui sera faite par le controller
+	private String name;
+	private String gender, country, introduction, visitedCountries[];
 
 	public String[] getVisitedCountries() {
 		return visitedCountries;
