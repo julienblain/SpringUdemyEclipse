@@ -4,7 +4,7 @@ import javax.validation.constraints.Size;
 
 public class User {
 	
-	@Size(min=5, max=15) //info sur la validation des données qui sera faite par le controller
+	@Size(min=5, max=15, message="entre un nombre de lettre entre 5 et 15 :)") //info sur la validation des données qui sera faite par le controller
 	private String name;
 	private String gender, country, introduction, visitedCountries[];
 

@@ -20,6 +20,7 @@
 	<p>
 	<!-- le path permet de lier les attributs du model avec l'input ; items donne les valeurs du mappage controler-->
 		Name : <form:input path="name" required="true"/> 
+				<form:errors path="name" cssStyle="color : red" />
 		<br>
 		Gender : Male : <form:radiobutton path="gender" value = "male" required="true"/>
 				Female : <form:radiobutton path="gender" value="female" required="true"/>
