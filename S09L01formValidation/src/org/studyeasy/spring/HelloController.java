@@ -1,9 +1,5 @@
 package org.studyeasy.spring;
  
-
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -22,20 +18,27 @@ public class HelloController {
 	public ModelAndView home(){
 		ModelAndView modelAndView = new ModelAndView("userFormView");
 		User user = new User();
+		modelAndView.addObject("user", user); //permet de lier le model au formulaire de la vue
+		return modelAndView;
+		
+		/*Renvoie la vue d'une autre facon
+		 * User user = new User();
 		
 		Map<String, String> genderMap = new HashMap<String, String>();
 		genderMap.put("male", "Male");
 		genderMap.put("female", "Female");
 		
-		modelAndView.addObject("genderMap", genderMap); //permet de passer les attributs dans la vue avec radiobuttonS 
+		map.addAttribute("genderMap", genderMap); //permet de passer les attributs dans la vue avec radiobuttonS 
 		
 		Map<String,String> countryMap = new HashMap<String, String>();
 		countryMap.put("India", "Inde");
 		countryMap.put("France", "France");
-		modelAndView.addObject("countryMap", countryMap);
+		map.addAttribute("countryMap", countryMap);
 		
-		modelAndView.addObject("user", user); //permet de lier le model au formulaire de la vue
-		return modelAndView;
+		map.addAttribute("user", user); //permet de lier le model au formulaire de la vue
+		return "userFormView";
+		 * */
+		
 	}
 	
 	@PostMapping("/displayUserInfo")
@@ -44,11 +47,17 @@ public class HelloController {
 		modelAndView.addObject("user", user);
 		
 		// annotation valid et bindingResult permettent de valider les données par rapport aux info données par le model
-		if(result.hasErrors()) {
+		if(result.hasErrors()) {	
+			ModelAndView repopulatingModelAndView = new ModelAndView("userFormView");
+			repopulatingModelAndView.addObject("user", user);
 			System.out.println("Has errors !");
+			return  repopulatingModelAndView;
+		}
+		else {
+			System.out.println("All is good !");
+			return modelAndView;
 		}
 		
-		return modelAndView;
 	}
 
 	

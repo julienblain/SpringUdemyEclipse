@@ -20,21 +20,19 @@
 	<p>
 	<!-- le path permet de lier les attributs du model avec l'input ; items donne les valeurs du mappage controler-->
 		Name : <form:input path="name" required="true"/> 
-		Gender : <form:radiobuttons path="gender" items="${genderMap}" required="true"/>
+		<br>
+		Gender : Male : <form:radiobutton path="gender" value = "male" required="true"/>
+				Female : <form:radiobutton path="gender" value="female" required="true"/>
 	</p>
 	
 	<p>Country :
-	<!-- 
+	
 		<form:select path="country">
 			<form:option value="India" label="Inde"></form:option>
-			<form:option value="France"></form:option>
+			<form:option value="France" lablel="France"></form:option>
+			<form:option value="USA" lablel="United States">United States</form:option>
 		</form:select>
-	 -->
 	 
-	 	<form:select path="country" items="${countryMap }">
-	 		
-	 	</form:select>
-		
 	</p>
 	
 	<p>Introduction : 
