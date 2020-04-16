@@ -37,8 +37,10 @@ public class AppDAOImpl implements AppDAO {
 						rs.getString("name"),
 						rs.getString("email")
 						);
-				listUsers.add(temp);		
+				listUsers.add(temp);
 			}
+			
+			System.out.println("connexion réussi");
 			rs.close();
 			ps.close();
 			return listUsers;
