@@ -11,8 +11,7 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 	</bean>
-	<bean id="DAOBean" class="org.easystudy.spring.DAO.AppDAOImpl"
-		lazy-init="false">
+	<bean id="DAOBean" class="org.easystudy.spring.DAO.AppDAOImpl">
 		<constructor-arg ref="dataSource" name="dataSource"></constructor-arg> <!-- injection du bean dataSource -->
 	</bean>
 </beans>
