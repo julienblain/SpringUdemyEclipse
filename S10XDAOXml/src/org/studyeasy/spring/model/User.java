@@ -5,6 +5,13 @@ public class User {
 	private String name;
 	private String email;
 	
+	public User(int userID, String name, String email) {
+		
+		this.userID = userID;
+		this.name = name;
+		this.email = email;
+	}
+	
 	public int getUserID() {
 		return userID;
 	}
