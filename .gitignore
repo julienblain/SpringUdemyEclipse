@@ -24,4 +24,6 @@ hs_err_pid*
 /.metadata/
 
 #mdp
-/S10XDAOXml/src/org/studyeasy/spring/DAO/Spring-AppDAOConfig.xml
+S10XDAOXml/src/org/studyeasy/spring/DAO/Spring-AppDAOConfig.xml
+
+*/target
