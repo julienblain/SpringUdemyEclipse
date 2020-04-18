@@ -1,3 +1,5 @@
+*\target\*
+
 # Compiled class file
 *.class
 
@@ -24,6 +26,6 @@ hs_err_pid*
 /.metadata/
 
 #mdp
-S10XDAOXml/src/org/studyeasy/spring/DAO/Spring-AppDAOConfig.xml
 
-*/target
+S10XDAOXml\src\org\studyeasy\spring\DAO\Spring-AppDAOConfig.xml
+
