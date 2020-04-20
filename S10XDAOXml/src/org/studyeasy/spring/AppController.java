@@ -20,33 +20,7 @@ import org.studyeasy.spring.model.User;
  
 @Controller
 public class AppController {
-	/*
-	@GetMapping("/index")
-	public ModelAndView home(){
-		ModelAndView modelAndView = new ModelAndView("userFormView");
-		User user = new User();
-		modelAndView.addObject("user", user); //permet de lier le model au formulaire de la vue
-		return modelAndView;
-		
-		//Renvoie la vue d'une autre facon
-		  User user = new User();
-		
-		Map<String, String> genderMap = new HashMap<String, String>();
-		genderMap.put("male", "Male");
-		genderMap.put("female", "Female");
-		
-		map.addAttribute("genderMap", genderMap); //permet de passer les attributs dans la vue avec radiobuttonS 
-		
-		Map<String,String> countryMap = new HashMap<String, String>();
-		countryMap.put("India", "Inde");
-		countryMap.put("France", "France");
-		map.addAttribute("countryMap", countryMap);
-		
-		map.addAttribute("user", user); //permet de lier le model au formulaire de la vue
-		return "userFormView";
-		 
-		
-	}* */
+	
 	
 	@PostMapping("/displayUserInfo")
 	public ModelAndView displayUserInfo(@ModelAttribute("user") @Valid User user, BindingResult result) { //modelAttribute du form qui donne les caract des champs si error
@@ -75,9 +49,38 @@ public class AppController {
 		
 		AppDAOImpl DAO = context.getBean("DAOBean", AppDAOImpl.class);
 		users = DAO.listUsers();
-		System.out.println(users);
+		model.addObject("users", users);
+		context.close();
 		return model;
 	}
+	
+	/*
+	@GetMapping("/index")
+	public ModelAndView home(){
+		ModelAndView modelAndView = new ModelAndView("userFormView");
+		User user = new User();
+		modelAndView.addObject("user", user); //permet de lier le model au formulaire de la vue
+		return modelAndView;
+		
+		//Renvoie la vue d'une autre facon
+		  User user = new User();
+		
+		Map<String, String> genderMap = new HashMap<String, String>();
+		genderMap.put("male", "Male");
+		genderMap.put("female", "Female");
+		
+		map.addAttribute("genderMap", genderMap); //permet de passer les attributs dans la vue avec radiobuttonS 
+		
+		Map<String,String> countryMap = new HashMap<String, String>();
+		countryMap.put("India", "Inde");
+		countryMap.put("France", "France");
+		map.addAttribute("countryMap", countryMap);
+		
+		map.addAttribute("user", user); //permet de lier le model au formulaire de la vue
+		return "userFormView";
+		 
+		
+	}* */
 
 	
 }
