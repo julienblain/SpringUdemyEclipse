@@ -19,9 +19,11 @@ public class AppConfig {
 		dataSource.setUrl("jdbc:mysql://localhost:3306/project1");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
-		return null;
+		
+		return dataSource;
 	}
 	
+	@Bean(name="DAOBean") //call by the controller
 	public AppDAOImpl AppDAP() {
 		return new AppDAOImpl(getDataSource());
 	}
