@@ -16,7 +16,7 @@ public class AppConfig {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/project1");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/project1?useSSL=false"); //evite d avoir l'erreur ssl dans la console 
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 		
