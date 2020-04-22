@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +30,12 @@ public class AppController {
 		model.addObject("users", users);
 		context.close();
 		return model;
+	}
+	
+	@RequestMapping("/addUser")
+	public String addUser(Model model, User user) {
+		model.addAttribute("user", user);
+		return "addUser";
 	}
 	
 }

@@ -5,6 +5,11 @@ public class User {
 	private String name;
 	private String email;
 	
+	public User() {
+		super();
+		
+	}
+
 	public User(int userID, String name, String email) {
 		
 		this.userID = userID;
