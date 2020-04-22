@@ -1,8 +1,13 @@
 package org.studyeasy.spring.model;
 
+import org.hibernate.validator.constraints.Email;
+
+
 public class User {
 	private int userID;
 	private String name;
+	@SuppressWarnings("deprecation")
+	@Email
 	private String email;
 	
 	public User() {
