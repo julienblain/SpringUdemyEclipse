@@ -38,15 +38,18 @@ public class AppController {
 	@RequestMapping("/addUser")
 	public String addUser(Model model,@Valid User user, BindingResult result) {
 		if(result.hasErrors()) {
-			model.addAttribute("user", user);
-			System.out.println("if");
+			model.addAttribute("user", user);	
 			return "addUser";
 		}else {
 			if(user.getName() != null && user.getEmail() !=null) { //and not blanck
 				
+				AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+				AppDAOImpl DAO = context.getBean("DAOBean", AppDAOImpl.class);
+				DAO.addUser(user);
+				context.close();
 				return "forward:/"; //renvoie à l'url /
 			}else {
-				System.out.println("esle else");
+				
 				return "addUser";
 			}
 			
