@@ -30,7 +30,7 @@ public class AppController {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		AppDAOImpl DAO = context.getBean("DAOBean", AppDAOImpl.class);
-		users = DAO.listUsers(1);
+		users = DAO.listUsers();
 		model.addObject("users", users);
 		context.close();
 		return model;
