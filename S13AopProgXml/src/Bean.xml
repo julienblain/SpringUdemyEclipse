@@ -10,9 +10,12 @@
 	<bean class="org.studyeasy.spring.App" id="app"></bean>
 	<bean id="aspect" class="org.studyeasy.aspect.Aspect"></bean>
 	<aop:config>
+	<aop:pointcut
+			expression="execution(void org.studyeasy.spring.App.later())"
+			id="pointcut" />
 		<aop:aspect ref="aspect">
-			<aop:before method="advice"
-				pointcut="execution(void org.studyeasy.spring.App.later())" />
+			<aop:before method="advice" pointcut-ref="pointcut" />
 		</aop:aspect>
+		
 	</aop:config>
 </beans>
