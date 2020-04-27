@@ -9,7 +9,7 @@ public class App {
 	public static void main(String[] args) {
 		
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");
-					System.out.println("ok");
+					
 					App ap = context.getBean("app", App.class);
 					ap.later();
 					
