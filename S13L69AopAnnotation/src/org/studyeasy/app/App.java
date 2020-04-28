@@ -9,7 +9,12 @@ public class App {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		Cars car = context.getBean("cars", Cars.class);
-		car.getPetrolCar().run();
+		try {
+			car.getPetrolCar().run();
+		} catch (Exception e) {
+			
+			System.out.println("Caught Exception"+e.getMessage());
+		}
 		context.close();
 	
 	}
