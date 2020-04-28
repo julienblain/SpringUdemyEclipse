@@ -4,6 +4,6 @@ public class PetrolCar {
 	
 	public void run() throws Exception{
 		System.out.println("running");
-		throw new Exception("What happened !");
+		//throw new Exception(" What happened !");
 	}
 }

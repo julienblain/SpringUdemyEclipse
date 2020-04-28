@@ -2,6 +2,7 @@ package org.studyeasy.diagnosis;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -24,8 +25,13 @@ public class Diagnose {
 	public void afterAdvice() {
 		System.out.println("checking engine2");
 	}
-	*/
+	*//*
 	@AfterReturning("run()") //ne s'execute pas si exception
+	public void afterAdvice() {
+		System.out.println("After advice ");
+	}*/
+	
+	@AfterThrowing("run()") //s'execute seulement si une exception est levée
 	public void afterAdvice() {
 		System.out.println("After advice ");
 	}
