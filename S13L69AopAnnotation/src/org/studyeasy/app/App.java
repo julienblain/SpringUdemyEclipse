@@ -10,7 +10,7 @@ public class App {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		Cars car = context.getBean("cars", Cars.class);
 		try {
-			car.getElectricCar().run();
+			car.getPetrolCar().run(100);
 		} catch (Exception e) {
 			
 			System.out.println("Caught Exception"+e.getMessage());
