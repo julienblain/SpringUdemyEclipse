@@ -12,9 +12,26 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Diagnose {
 
-	@Pointcut("execution(void org.studyeasy.cars.PetrolCar.run())") 
+	/*
+	@Pointcut("execution(* org.studyeasy.cars.PetrolCar.run(..))") //*=n'importe quel param ou n'importe quel type; .. plusierus param
 	public void run() {
 		
+	}
+	*/
+	/*
+	@Pointcut("execution(* org.studyeasy.cars.PetrolCar.*(..))") //*=n'importe quelle methode
+	public void run() {
+		
+	}*/
+	
+	@Pointcut("execution(* org.studyeasy.cars.*.*(..))") //*=n'importe car 
+	public void run() {
+		
+	}
+	
+	@Before("run()")
+	public void testAdvice() {
+		System.out.println("test advice");
 	}
 	
 	/*
@@ -40,6 +57,7 @@ public class Diagnose {
 	}
 	*/
 	
+	/*
 	@Around("run()") //avant et apres run si jp.proceed sinon nop
 	public void aroundAdvice(ProceedingJoinPoint jp) {
 		System.out.println("Around advice initial msg ");
@@ -52,6 +70,6 @@ public class Diagnose {
 		}
 		
 		System.out.println("Around advice later msg ");
-	}
+	}*/
 	
 }
