@@ -11,6 +11,17 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class Diagnose {
+	
+	@Before("run()")
+	public void testAdvice() {
+		System.out.println("test advice");
+	}
+	
+	@Pointcut("execution(private * org.studyeasy.cars.*.*(..))") //private 
+	public void run() {
+		
+	}
+	
 
 	/*
 	@Pointcut("execution(* org.studyeasy.cars.PetrolCar.run(..))") //*=n'importe quel param ou n'importe quel type; .. plusierus param
@@ -24,15 +35,11 @@ public class Diagnose {
 		
 	}*/
 	
-	@Pointcut("execution(* org.studyeasy.cars.*.*(..))") //*=n'importe car 
-	public void run() {
-		
-	}
-	
-	@Before("run()")
-	public void testAdvice() {
-		System.out.println("test advice");
-	}
+//	@Pointcut("execution(* org.studyeasy.cars.*.*(..))") //*=n'importe car 
+//	public void run() {
+//		
+//	}
+//	
 	
 	/*
 	@Before("run()") //on peut mettre execution blabla ou le pointcut
