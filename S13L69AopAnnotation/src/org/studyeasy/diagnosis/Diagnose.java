@@ -16,12 +16,17 @@ public class Diagnose {
 	public void testAdvice() {
 		System.out.println("test advice");
 	}
-	
-	@Pointcut("execution(private * org.studyeasy.cars.*.*(..))") //private 
+	@Pointcut("within(org.studyeasy.cars.*)") //designator within
 	public void run() {
 		
 	}
 	
+//	
+//	@Pointcut("execution(public * org.studyeasy.cars.*.*(..))") //private, n'execute pas l'advice cf liste designator
+//	public void run() {
+//		
+//	}
+//	
 
 	/*
 	@Pointcut("execution(* org.studyeasy.cars.PetrolCar.run(..))") //*=n'importe quel param ou n'importe quel type; .. plusierus param
