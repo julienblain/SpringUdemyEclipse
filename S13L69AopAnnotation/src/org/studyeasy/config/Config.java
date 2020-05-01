@@ -19,7 +19,7 @@ public class Config {
 	}
 	
 	@Bean("petrolCar")
-	public Machine petrolCar() {
+	public PetrolCar petrolCar() {
 		return new PetrolCar();
 	}
 	

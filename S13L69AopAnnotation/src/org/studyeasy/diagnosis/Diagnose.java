@@ -11,25 +11,16 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.studyeasy.cars.PetrolCar;
 
-@Aspect()
+@Aspect
 public class Diagnose {
-	//this = all join points where this instanceof a type is true
-	//target = all where an object instance of a type
-	//this from a receivers perspective and target is from a caller perspective
-	//bug
-	@Pointcut("target(org.studyeasy.cars.Machine)")
-	public void targetPointcut(){};
+
+//	@Pointcut("bean(petrolCar)")
+//	public void beanPointcut() {}
+	@Pointcut("bean(*Car)")
+	public void beanPointcut() {}
 	
-	@Before("targetPointcut()")
-	public void targetAdvice(){
-		System.out.println("targetAdvice");
-	}
-	
-	@Pointcut("this(org.studyeasy.cars.PetrolCar)")
-	public void thisPointcut(){};
-	
-	@Before("thisPointcut()")
-	public void thisAdvice(){
-		System.out.println("thisAdvice");
+	@Before("beanPointcut()")
+	public void testAdvice() {
+		System.out.println("test advice");
 	}
 }

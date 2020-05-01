@@ -12,7 +12,7 @@ public static void main(String args[]){
 		
 		AnnotationConfigApplicationContext context = 
 				new AnnotationConfigApplicationContext(Config.class);
-		Machine car = context.getBean("petrolCar", Machine.class);
+		PetrolCar car = context.getBean("petrolCar", PetrolCar.class);
 			
 			car.run();
 			
