@@ -13,34 +13,8 @@ import org.studyeasy.cars.PetrolCar;
 
 @Aspect
 public class Diagnose {
-	
-	//@Pointcut("execution(void run(int))") //permet de faire des pointcut generique par rapport à une methode ou arg
-//	@Pointcut("args(int)")
-	//public void pointcut() {}
-	
-	
-	@Pointcut("args(temp)") 
-	public void pointcut(int temp) {
-		
+	@Before("execution(public void run())")
+	public void testAdvice() {
+		System.out.println("Test advice");
 	}
-	
-	@Before("pointcut(temp)")
-	public void testAdvice(int temp) {
-		System.out.println("test advice" + temp);
-	}
-	
-	
-//	@Before("execution(void run(int))")
-//	public void testAdvice(JoinPoint jp) {
-//		//System.out.println(jp.toString()); //permet de voir le joinpoint
-//		//PetrolCar car = (PetrolCar) jp.getTarget(); //get petrol car
-//		//car.run("test call to run method");
-//		
-//		for(Object ob : jp.getArgs()) { //recup des arguments
-//			System.out.println(ob);
-//		}
-//		
-//		System.out.println("Test Advice");
-//	}
-	
 }

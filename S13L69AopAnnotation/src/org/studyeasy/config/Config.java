@@ -4,12 +4,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.studyeasy.cars.ElectricCar;
+import org.studyeasy.cars.Machine;
 import org.studyeasy.cars.PetrolCar;
 import org.studyeasy.diagnosis.Diagnose;
 import org.studyeasy.service.Cars;
 
 @Configuration
-@EnableAspectJAutoProxy   //pour l'apect
+@EnableAspectJAutoProxy(proxyTargetClass = true)   //true =pour compilation aspect et target class qui a une interface
 public class Config {
 	
 	@Bean("electricCar")
@@ -18,7 +19,7 @@ public class Config {
 	}
 	
 	@Bean("petrolCar")
-	public PetrolCar petrolCar() {
+	public Machine petrolCar() {
 		return new PetrolCar();
 	}
 	
