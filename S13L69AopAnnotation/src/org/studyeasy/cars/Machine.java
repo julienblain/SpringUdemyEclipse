@@ -9,5 +9,6 @@ public interface Machine {
 	void run(int speed, int kms);
 
 	String run(String msg);
+	
 
 }

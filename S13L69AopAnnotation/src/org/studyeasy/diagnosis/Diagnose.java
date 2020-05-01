@@ -11,10 +11,25 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.studyeasy.cars.PetrolCar;
 
-@Aspect
+@Aspect()
 public class Diagnose {
-	@Before("execution(public void run())")
-	public void testAdvice() {
-		System.out.println("Test advice");
+	//this = all join points where this instanceof a type is true
+	//target = all where an object instance of a type
+	//this from a receivers perspective and target is from a caller perspective
+	//bug
+	@Pointcut("target(org.studyeasy.cars.Machine)")
+	public void targetPointcut(){};
+	
+	@Before("targetPointcut()")
+	public void targetAdvice(){
+		System.out.println("targetAdvice");
+	}
+	
+	@Pointcut("this(org.studyeasy.cars.PetrolCar)")
+	public void thisPointcut(){};
+	
+	@Before("thisPointcut()")
+	public void thisAdvice(){
+		System.out.println("thisAdvice");
 	}
 }

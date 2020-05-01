@@ -10,7 +10,7 @@ import org.studyeasy.diagnosis.Diagnose;
 import org.studyeasy.service.Cars;
 
 @Configuration
-@EnableAspectJAutoProxy(proxyTargetClass = true)   //true =pour compilation aspect et target class qui a une interface
+@EnableAspectJAutoProxy(proxyTargetClass = true)   //true =pour compilation aspect et target class qui a une interface, true enleve le type
 public class Config {
 	
 	@Bean("electricCar")

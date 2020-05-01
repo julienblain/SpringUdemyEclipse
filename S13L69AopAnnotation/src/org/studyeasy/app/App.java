@@ -8,13 +8,17 @@ import org.studyeasy.service.Cars;
 
 public class App {
 
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+public static void main(String args[]){
+		
+		AnnotationConfigApplicationContext context = 
+				new AnnotationConfigApplicationContext(Config.class);
 		Machine car = context.getBean("petrolCar", Machine.class);
-		car.run();
+			
+			car.run();
+			
 		context.close();
-	
 	}
+
 	
 	
 
