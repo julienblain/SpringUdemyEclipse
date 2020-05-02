@@ -10,11 +10,20 @@ import org.aspectj.lang.annotation.Pointcut;
 public class Diagnose {
 
 	@Pointcut("@target(org.springframework.stereotype.Component)") 
-	public void beanPointcut() {
+	public void targetPointcut() {
 	}
 	
-	@Before("beanPointcut()")
+	@Before("targetPointcut()")
 	public void testAdvice() {
 		System.out.println("test advice");
+	}
+	
+	@Pointcut("@annotation(Deprecated)") 
+	public void annotationPointcut() {
+	}
+	
+	@Before("annotationPointcut()")
+	public void testAdvice2() {
+		System.out.println("test advice for annotation");
 	}
 }
