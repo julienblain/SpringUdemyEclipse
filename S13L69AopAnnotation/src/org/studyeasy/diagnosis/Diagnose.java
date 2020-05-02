@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Diagnose {
 
-	@Pointcut("within(@org.springframework.stereotype.Component org.studyeasy.cars.*)") //pour pas prendre en compte le component electric car
+	@Pointcut("@target(org.springframework.stereotype.Component)") 
 	public void beanPointcut() {
 	}
 	
