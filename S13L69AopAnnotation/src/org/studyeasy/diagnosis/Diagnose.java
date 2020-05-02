@@ -9,12 +9,23 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Diagnose {
 
-	@Pointcut("@args(Deprecated)")
-	public void argsPointcut() {
+	@Pointcut("@annotation(Deprecated)")
+	public void annotationPointcut() {
 		
 	}
 	
-	@Before("argsPointcut()")
+	@Pointcut("within(org.studyeasy.cars.*)")
+	public void withinPointcut() {
+		
+	}
+	
+	@Pointcut("target(org.studyeasy.cars.ElectricCar)")
+	public void targetPointcut() {
+		
+	}
+	
+	
+	@Before("withinPointcut() && !annotationPointcut()")
 	public void testAdvice() {
 		System.out.println("test advice for @args");
 	}

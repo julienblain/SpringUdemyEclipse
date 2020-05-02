@@ -16,7 +16,7 @@ public static void main(String args[]){
 				new AnnotationConfigApplicationContext(Config.class);
 		ElectricCar car = context.getBean("electricCar", ElectricCar.class);
 			
-			car.recharge(new Battery());
+			car.run();
 			
 		context.close();
 	}
