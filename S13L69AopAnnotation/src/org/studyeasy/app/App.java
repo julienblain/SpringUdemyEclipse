@@ -5,6 +5,7 @@ import org.studyeasy.cars.ElectricCar;
 import org.studyeasy.cars.Machine;
 import org.studyeasy.cars.PetrolCar;
 import org.studyeasy.config.Config;
+import org.studyeasy.objects.Battery;
 import org.studyeasy.service.Cars;
 
 public class App {
@@ -15,7 +16,7 @@ public static void main(String args[]){
 				new AnnotationConfigApplicationContext(Config.class);
 		ElectricCar car = context.getBean("electricCar", ElectricCar.class);
 			
-			car.run();
+			car.recharge(new Battery());
 			
 		context.close();
 	}
