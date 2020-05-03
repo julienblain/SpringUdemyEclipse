@@ -8,8 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link rel="stylesheet"  href="<% request.getContextPath();%>/files/style.css"/>
-<link rel="stylesheet"  href="/S16SpringSecurityXmlConfig/WebContent/WEB-INF/files/style.css"/>
+<link type="text/css" rel="stylesheet"  href="<c:url value="/files/style.css"/>"/>
+<link rel="stylesheet"  href="/S16SpringSecurityXmlConfig/files/style.css"/>
 <title>userList</title>
 </head>
 <body>
