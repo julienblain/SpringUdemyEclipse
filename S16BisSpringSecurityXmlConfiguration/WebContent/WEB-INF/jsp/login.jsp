@@ -1,3 +1,5 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <title>Login Page</title>
@@ -10,6 +12,9 @@ Custom Login Form
 	<form name='f' action='${loginUrl }' method='POST'>
 		<table>
 			<tr>
+				<c:if test="${param.error != null }">
+					<span  style="color:red"> Invalid Credential </span>
+				</c:if>
 				<td>User:</td>
 				<td><input type='text' name='username' value=''></td>
 			</tr>
