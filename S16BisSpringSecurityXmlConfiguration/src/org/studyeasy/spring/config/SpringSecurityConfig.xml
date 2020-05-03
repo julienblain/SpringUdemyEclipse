@@ -19,10 +19,12 @@
 	
 	<security:http use-expressions="true" jaas-api-provision="false">
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/files/**" access="permitAll" />
+		<security:intercept-url pattern="/files/**" access="permitAll" /> <!-- css -->
+		<security:intercept-url pattern="/login" access="permitAll" /> <!-- login custom -->
 		<security:intercept-url pattern="/addUser" access="isAuthenticated()" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		
-		<security:form-login />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login?error" />
 	</security:http>
 </beans>
