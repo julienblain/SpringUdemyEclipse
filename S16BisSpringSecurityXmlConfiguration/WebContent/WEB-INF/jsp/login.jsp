@@ -29,9 +29,12 @@ Custom Login Form
 			
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
-					value="Login" /></td>
+					value="Login" />
+					<input type="hidden" name="${_csrf.parameterName}"     value="${_csrf.token}"/>
+					</td>
 			</tr>
-			<input name="${_csrf.parameterName }" type="hidden" value="${_csrf.token }" />
+			
+			
 		</table>
 	</form>
 </body>

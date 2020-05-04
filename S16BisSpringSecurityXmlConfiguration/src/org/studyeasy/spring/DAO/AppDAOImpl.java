@@ -66,6 +66,7 @@ public class AppDAOImpl implements AppDAO {
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getPassword());
+			ps.setInt(4, 1);
 			ps.execute();
 	        
 	     ps.close();

@@ -24,12 +24,20 @@
 	<p>	
 		Email : <form:input path="email" /> 
 				<form:errors path="email" cssStyle="color : red" />
-	</p>
+	</p> 
 	<p>
 		Password : <form:input path="password" type="password" /> 
 	</p>
 	<input type="submit" value="submit">
 </form:form>
+<br>
+<div>
+	<c:url var="logoutUrl" value="/" />
+	<form action="${logoutUrl }" method="post">
+		<input type="submit" value="Logout"/>
+		 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+</div>
 
 </body>
 </html>
