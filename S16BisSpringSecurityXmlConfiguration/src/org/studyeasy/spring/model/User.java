@@ -9,7 +9,10 @@ public class User {
 	@SuppressWarnings("deprecation")
 	@Email
 	private String email;
+	private String password;
 	
+	
+
 	public User() {
 		super();
 		
@@ -20,6 +23,15 @@ public class User {
 		this.userID = userID;
 		this.name = name;
 		this.email = email;
+	
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	public int getUserID() {

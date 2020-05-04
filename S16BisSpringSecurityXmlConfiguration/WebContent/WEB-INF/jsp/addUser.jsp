@@ -19,9 +19,15 @@
 <form:form action="addUser" modelAttribute="user">
 	<p>
 		Name : <form:input path="name" /> 
-				<form:errors path="name" cssStyle="color : red" />
+		<form:errors path="name" cssStyle="color : red" /> 
+	</p>
+	<p>	
 		Email : <form:input path="email" /> 
 				<form:errors path="email" cssStyle="color : red" />
+	</p>
+	<p>
+		Password : <form:input path="password" type="password" /> 
+	</p>
 	<input type="submit" value="submit">
 </form:form>
 
