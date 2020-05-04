@@ -33,7 +33,7 @@ public class AppDAOImpl implements AppDAO {
 			while(rs.next()) {
 				User temp = new User(
 						rs.getInt("user_id"), 
-						rs.getString("name"), 
+						rs.getString("username"), 
 						rs.getString("email")
 						);
 				listUsers.add(temp);	
