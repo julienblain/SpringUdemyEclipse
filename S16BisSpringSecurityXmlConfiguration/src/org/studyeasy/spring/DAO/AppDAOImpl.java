@@ -10,6 +10,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.studyeasy.spring.model.User;
+import org.studyeasy.spring.service.PasswordEncodingService;
 
 public class AppDAOImpl implements AppDAO {
 
@@ -65,7 +66,7 @@ public class AppDAOImpl implements AppDAO {
 			PreparedStatement ps = conn.prepareStatement(SQL);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getPassword());
+			ps.setString(3, new PasswordEncodingService().passwordEncoder(user.getPassword()));
 			ps.setInt(4, 1);
 			
 			ps.execute();
