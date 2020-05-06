@@ -31,6 +31,9 @@
 		<security:logout invalidate-session="true"
 			logout-success-url="/" logout-url="/" />
 
+
+		<security:access-denied-handler error-page="/403" />
+		<security:intercept-url pattern="/403" access="permitAll" />
 		
 	</security:http>
 </beans>
