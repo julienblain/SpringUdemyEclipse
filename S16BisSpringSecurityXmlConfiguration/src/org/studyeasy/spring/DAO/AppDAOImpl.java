@@ -58,7 +58,7 @@ public class AppDAOImpl implements AppDAO {
 	
 	public void addUser(User user) {
 		String SQL =  "INSERT INTO users " +
-				"(username, email, password) VALUES (?, ?, ?)";
+				"(username, email, password, enabled) VALUES (?, ?, ?, ?)";
 		Connection conn = null;
 		try{
 			conn = dataSource.getConnection();
@@ -67,9 +67,9 @@ public class AppDAOImpl implements AppDAO {
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getPassword());
 			ps.setInt(4, 1);
+			
 			ps.execute();
-	        
-	     ps.close();
+			ps.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
