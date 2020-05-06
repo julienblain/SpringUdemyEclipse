@@ -16,10 +16,12 @@
 	<security:http use-expressions="true" jaas-api-provision="false">
 		<security:intercept-url pattern="/files/**" access="permitAll" /> <!-- css -->
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/logout" access="permitAll" />
+		<security:intercept-url pattern="/logout" access="permitAll" />	
 		<security:intercept-url pattern="/user" access="hasAnyRole('USER', 'ADMIN')" /><!-- spring add prefix ROLE_ in db -->
-		<security:intercept-url pattern="/admin" access='hasRole("ADMIN")' /><!-- attention au quote sinon bug -->
-		<security:intercept-url pattern="/admin" access="permitAll" />
+		
+		<!--<security:intercept-url pattern="/admin" access='hasRole("ADMIN")' /> attention au quote sinon bug -->
+		<security:intercept-url pattern="/admin" access="permitAll" /><!-- securisé in router with annotation -->
+		
 		<security:intercept-url pattern="/login" access="permitAll" /> <!-- login custom -->
 		<security:intercept-url pattern="/addUser" access="isAuthenticated()" />
 		<security:intercept-url pattern="/**" access="denyAll" />
@@ -36,4 +38,5 @@
 		<security:intercept-url pattern="/403" access="permitAll" />
 		
 	</security:http>
+	<security:global-method-security secured-annotations="enabled"></security:global-method-security>
 </beans>

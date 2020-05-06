@@ -6,7 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -63,6 +63,7 @@ public class AppController {
 		return model;
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/admin")
 	public ModelAndView admin() {
 		ModelAndView model = new ModelAndView("admin");
