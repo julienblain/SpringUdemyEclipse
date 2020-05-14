@@ -34,9 +34,9 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping("/user")
-	public ModelAndView userList() {
-		ModelAndView model = new ModelAndView("user");
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
 	
