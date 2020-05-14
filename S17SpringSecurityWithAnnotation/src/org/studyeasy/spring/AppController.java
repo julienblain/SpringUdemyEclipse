@@ -40,6 +40,12 @@ public class AppController {
 		return model;
 	}
 	
+	@RequestMapping("/user")
+	public ModelAndView user() {
+		ModelAndView model = new ModelAndView("user");
+		return model;
+	}
+	
 	
 	
 }
