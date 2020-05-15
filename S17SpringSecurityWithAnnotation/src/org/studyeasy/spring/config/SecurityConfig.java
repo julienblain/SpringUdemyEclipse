@@ -41,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.rememberMe().rememberMeParameter("remember-me").tokenValiditySeconds(50000).key("anyKey")
 			.tokenRepository(tokenRepository());
 		
+		//logout
+		http.logout().logoutSuccessUrl("/").logoutUrl("/").invalidateHttpSession(true);
 		
 	}
 
