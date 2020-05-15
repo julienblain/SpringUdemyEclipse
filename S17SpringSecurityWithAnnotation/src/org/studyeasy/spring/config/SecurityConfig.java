@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 
 @Configuration
@@ -31,5 +33,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//custom form login
 		http.formLogin().loginPage("/login").failureUrl("/login?error");
 		
+		//key is optional but most secure
+		http.rememberMe().rememberMeParameter("remember-me").tokenValiditySeconds(50000).key("anyKey")
+			.tokenRepository(tokenRepository());
+		
+	}
+
+	private PersistentTokenRepository tokenRepository() {
+	//create table persistent_logins (
+//		  username varchar(64) not null,
+//		  series varchar(64) primary key,
+//		  token varchar(64) not null,
+//		  last_used timestamp not null);
+		
+		JdbcTokenRepositoryImpl repository = new JdbcTokenRepositoryImpl();
+		repository.setDataSource(dataSource);
+		return repository;
 	}
 }
