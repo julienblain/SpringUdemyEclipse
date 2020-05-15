@@ -46,6 +46,12 @@ public class AppController {
 		return model;
 	}
 	
+	@RequestMapping("/403")
+	public ModelAndView status403() {
+		ModelAndView model = new ModelAndView("403");
+		return model;
+	}
+	
 	
 	
 }

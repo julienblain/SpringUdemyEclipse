@@ -27,15 +27,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+			.antMatchers("/403").access("permitAll")
 			.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/user").access("hasRole('ROLE_USER')");
+			.antMatchers("/user").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
 		
 		//custom form login
 		http.formLogin().loginPage("/login").failureUrl("/login?error");
 		
+		//to do redirection because bug
+		http.exceptionHandling().accessDeniedPage("/403");
+		
 		//key is optional but most secure
 		http.rememberMe().rememberMeParameter("remember-me").tokenValiditySeconds(50000).key("anyKey")
 			.tokenRepository(tokenRepository());
+		
 		
 	}
 
